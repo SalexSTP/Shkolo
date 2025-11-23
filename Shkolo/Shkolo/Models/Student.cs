@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Shkolo.Models
+﻿namespace Shkolo.Models
 {
     public class Student
     {
@@ -44,38 +42,6 @@ namespace Shkolo.Models
         public void AddRemark(Remark remark)
         {
             Remarks.Add(remark);
-        }
-
-        public string GetFeedbackSummary()
-        {
-            return $"Student: {FirstName} {LastName}\n" +
-                   $"Average Grade: {CalculateAverageGrade():F2}\n" +
-                   $"Praises: {Praises.Count}\n" +
-                   $"Remarks: {Remarks.Count}";
-        }
-
-        public string GetPraises()
-        {
-            StringBuilder sb = new StringBuilder();
-
-            foreach (var praise in Praises)
-            {
-                sb.AppendLine(praise.ToString());
-            }
-
-            return sb.ToString();
-        }
-
-        public string GetRemarks()
-        {
-            StringBuilder sb = new StringBuilder();
-
-            foreach (var remark in Remarks)
-            {
-                sb.AppendLine(remark.ToString());
-            }
-
-            return sb.ToString();
         }
     }
 }

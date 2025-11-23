@@ -1,12 +1,6 @@
-
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text.Json;
 using Shkolo.Models;
 using Shkolo.Enums;
-using System.Diagnostics;
 
 var options = new JsonSerializerOptions
 {
@@ -82,6 +76,18 @@ void PrintInfo(Student s)
     {
         Console.WriteLine("No remarks.");
     }
+
+    Console.WriteLine("\n--- Average Grade ---");
+    if (s.Grades != null && s.Grades.Count > 0)
+    {
+        double avg = s.CalculateAverageGrade();
+        Console.WriteLine($"Average Grade: {avg:F2}");
+    }
+    else
+    {
+        Console.WriteLine("No grades to calculate average.");
+    }
+
 
     Console.WriteLine("\n==============================\n");
 }
@@ -324,7 +330,7 @@ void DeleteStudent()
 
 void SearchStudent()
 {
-    Console.Write("Search by name");
+    Console.Write("Search by name: ");
     var term = (Console.ReadLine() ?? "").Trim();
     if (string.IsNullOrEmpty(term))
     {
@@ -349,7 +355,7 @@ void SearchStudent()
     foreach (var m in matches)
         Console.WriteLine($"{m.Index + 1}) {m.Student.FirstName} {m.Student.LastName}");
 
-    Console.Write("Press (1) to view details or (0) to cancel: ");
+    Console.Write("\nPress (1) to view details or (0) to cancel: ");
 
     if (int.TryParse(Console.ReadLine(), out int sel) && sel >= 1 && sel <= students.Count)
     {
