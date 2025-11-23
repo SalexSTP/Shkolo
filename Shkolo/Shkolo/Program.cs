@@ -27,7 +27,6 @@ while (true)
     Console.WriteLine("4) Search Student");
     Console.WriteLine("5) Delete Student");
     Console.WriteLine("6) Save & Exit");
-    Console.WriteLine("7) Find student ID by name");
     Console.Write("Choose: ");
 
     var choice = Console.ReadLine();
