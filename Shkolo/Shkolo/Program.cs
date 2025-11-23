@@ -15,8 +15,6 @@ var options = new JsonSerializerOptions
 
 List<Student> students = LoadData();
 
-string json = File.ReadAllText("data.json");
-
 // simple menu loop
 while (true)
 {
@@ -610,6 +608,8 @@ void AddStudent(List<Student> list)
 
     var student = new Student(first, last);
     list.Add(student);
+
+    SaveData(list);
 
     Console.WriteLine("Student added.");
 }
