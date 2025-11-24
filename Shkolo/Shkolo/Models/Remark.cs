@@ -14,5 +14,10 @@ namespace Shkolo.Models
             RemarkType = remarkType;
             Date = DateTime.Now;
         }
+
+        public override string ToString()
+        {
+            return $"{RemarkType} in {Subject} on {Date.ToShortDateString()}";
+        }   
     }
 }

@@ -18,5 +18,10 @@ namespace Shkolo.Models
             Reason = reason;
             Teacher = teacher;
         }
+
+        public override string ToString()
+        {
+            return $"{Subject}: {Value} ({Reason}) by {Teacher.FirstName} {Teacher.LastName} on {DateReceived.ToShortDateString()}";
+        }
     }
 }
