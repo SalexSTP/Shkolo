@@ -14,10 +14,5 @@ namespace Shkolo.Models
             PraiseType = praiseType;
             Date = DateTime.Now;
         }
-
-        public override string ToString()
-        {
-            return $"{PraiseType} in {Subject} on {Date.ToShortDateString()}";
-        }
     }
 }
